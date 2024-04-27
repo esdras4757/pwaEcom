@@ -37,7 +37,7 @@ const listItemVariants = {
   }),
 }
 
-function InfiniteHitsComponent({
+export function InfiniteHitsComponent({
   hits,
   hasPrevious,
   refinePrevious,
@@ -94,7 +94,3 @@ function InfiniteHitsComponent({
     </section>
   )
 }
-
-export const InfiniteHits = connectInfiniteHits<any, any>(
-  memo(withDebugLayer(InfiniteHitsComponent, 'InfiniteHitsWidget'), isEqual)
-)

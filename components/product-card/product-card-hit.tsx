@@ -94,7 +94,9 @@ export function ProductCardHitComponent({
   }, [insights, insightsEventName])
 
   return (
-    <ProductCard view={viewMode} onLinkClick={handleLinkClick} {...product} />
+    <>
+        <ProductCard view={viewMode} onLinkClick={handleLinkClick} {...product} /> 
+    </>
   )
 }
 
@@ -104,10 +106,13 @@ export const ProductCardHit = connectHitInsights<ProductCardHitProps>(
 
 export function ProductCardHitShowcase(props: ProductCardHitProps) {
   return (
-    <ProductCardHit
+    <div className='px-2'>
+     <ProductCardHit
       {...props}
       highlighting={false}
       insightsEventName="Showcase: Product Clicked"
     />
+    </div>
+   
   )
 }

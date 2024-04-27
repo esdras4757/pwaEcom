@@ -3,7 +3,7 @@ import { Configure, Index } from 'react-instantsearch-dom'
 
 import { Container } from '@/components/container/container'
 import { indexName as defaultIndexName } from '@/utils/env'
-import { InfiniteHits } from '@instantsearch/widgets/infinite-hits/infinite-hits'
+import ProductsList from '../ProductsList'
 
 export type ProductsShowcaseProps = {
   title?: string
@@ -12,6 +12,7 @@ export type ProductsShowcaseProps = {
   className?: string
   hitComponent: React.ComponentType<any>
   [index: string]: any
+  products: any[]
 }
 
 export function ProductsShowcase({
@@ -20,6 +21,7 @@ export function ProductsShowcase({
   title,
   className,
   hitComponent,
+  products,
   ...searchParameters
 }: ProductsShowcaseProps) {
   return (
@@ -29,14 +31,16 @@ export function ProductsShowcase({
       <section className={classNames('py-4 laptop:py-16', className)}>
         <Container>
           {title && (
-            <h2 className="text-sm font-semibold tracking-[2px] uppercase mb-3 laptop:mb-6 laptop:ml-3 laptop:heading-3">
+            <h2 className="text-sm font-semibold  tracking-[2px] uppercase mb-3 laptop:mb-6 laptop:ml-3 laptop:heading-3">
               {title}
             </h2>
           )}
-          <InfiniteHits
-            hitComponent={hitComponent}
-            animation={false}
-            gridClassName="grid-cols-2 laptop:grid-cols-6"
+
+          <ProductsList
+            products={products}
+            onProductClick={(product) => {
+              console.log(product)
+            }}
           />
         </Container>
       </section>

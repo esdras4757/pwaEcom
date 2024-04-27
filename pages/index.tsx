@@ -9,6 +9,51 @@ import {
   SearchPageLayout,
 } from '@/layouts/search-page-layout'
 import BannerImage from '@/public/static/images/home/banner.jpg'
+import { product } from '@/TypesProject'
+
+
+const products:product[] = [
+  {
+    id: '1',
+    title: 'product1',
+    price: 100,
+    image: '/static/images/home/banner.jpg',
+    view: 'grid',
+    colors: ['red', 'blue'],
+    rating: 4,
+    reviews: 10,
+    available: true,
+    tags: [
+      {
+        label: 'New',
+        theme: 'default',
+      },
+    ],
+    currency: {
+      symbol: '$',
+      position: 'prefix',
+    },
+    description:'This is a description of the product',
+    label: 'Sale',
+    originalPrice: 200,
+    url: 'https://www.algolia.com',
+    
+  },
+  {
+    id: '2',
+    title: 'product2',
+    price: 200,
+    image:
+      'https://res.cloudinary.com/hilnmyskv/image/upload/v1638371242/flagship_sunrise/M0E20000000DSDJ_2.jpg',
+  },
+  {
+    id: '3',
+    title: 'product3',
+    price: 300,
+    image:
+      'https://res.cloudinary.com/hilnmyskv/image/upload/v1638371242/flagship_sunrise/M0E20000000DSDJ_2.jpg',
+  },
+]
 
 export default function Home(props: SearchPageLayoutProps) {
   return (
@@ -23,8 +68,8 @@ export default function Home(props: SearchPageLayoutProps) {
 
       <Banner
         size="xl"
-        title="New<br />Collection"
-        subtitle="Spring/summer 2021"
+        title="Nueva<br />Coleccion"
+        subtitle="Call of Duty / Warzone"
         image={BannerImage}
         imageAlt="New Collection - Spring/Summer 2021"
         fullWidth={true}
@@ -33,12 +78,23 @@ export default function Home(props: SearchPageLayoutProps) {
       />
 
       <ProductsShowcase
-        title="New in shoes"
-        indexId="shoes"
-        query="shoes"
+        products={products}
+        title="Nuevos"
+        indexId="spring-summer-2021"
+        ruleContexts={['home-spring-summer-2021']}
         hitComponent={ProductCardHitShowcase}
       />
       <ProductsShowcase
+        products={[
+          {
+            id: '1',
+            title: 'product1',
+            price: 100,
+            image: '/static/images/home/banner.jpg',
+          },
+          { id: '2', title: 'product2', price: 200 },
+          { id: '3', title: 'product3', price: 300 },
+        ]}
         title="Spring/summer 2021"
         indexId="spring-summer-2021"
         ruleContexts={['home-spring-summer-2021']}
@@ -46,6 +102,16 @@ export default function Home(props: SearchPageLayoutProps) {
         hitComponent={ProductCardHitShowcase}
       />
       <ProductsShowcase
+        products={[
+          {
+            id: '1',
+            title: 'product1',
+            price: 100,
+            image: '/static/images/home/banner.jpg',
+          },
+          { id: '2', title: 'product2', price: 200 },
+          { id: '3', title: 'product3', price: 300 },
+        ]}
         title="Recommended for you"
         indexId="recommended"
         query="jacket"

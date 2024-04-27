@@ -17,7 +17,8 @@ import type { ViewMode } from '@/components/view-modes/view-modes'
 import { Link } from '@ui/link/link'
 
 export type ProductCardProps = {
-  url?: string
+  id:string;
+  url?: string;
   image?: string
   tags?: ProductTagType[]
   label?: string
@@ -38,6 +39,7 @@ export type ProductCardProps = {
 }
 
 export function ProductCard({
+  id:string,
   url = '',
   image,
   tags,
@@ -73,7 +75,7 @@ export function ProductCard({
   return (
     <article
       className={classNames(
-        'w-full h-full relative border border-transparent transition-all laptop:p-3 group can-hover:laptop:hover:shadow-sm can-hover:laptop:hover:border-neutral-light',
+        'w-full h-full relative border border-transparent transition-all laptop:p-4 group can-hover:laptop:hover:shadow-sm can-hover:laptop:hover:border-neutral-light',
         { 'opacity-50': !available }
       )}
     >
@@ -92,7 +94,6 @@ export function ProductCard({
           })}
         >
           {image && <ProductImage src={image} alt={title} />}
-
           {tags && tags.length > 0 && (
             <div className="absolute bottom-1 left-1 flex flex-col items-start gap-1">
               {tags.map((tag) => (
