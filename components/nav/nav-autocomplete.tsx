@@ -88,11 +88,11 @@ export function NavAutocomplete() {
   )
 
   const autocompleteCn = classNames(
-    'w-full pl-2.5 laptop:w-80 laptop:p-0 laptop:ease-out laptop:absolute laptop:right-0',
+    'w-full pl-2.5 laptop:w-80 laptop:p-0 laptop:ease-out  laptop:right-0',
     { focused: isExpanded }
   )
 
-  const width = isExpanded ? '90%' : '20rem'
+  const width = isExpanded ? '40rem' : '20rem'
 
   return (
     <m.div
@@ -100,7 +100,7 @@ export function NavAutocomplete() {
       animate={{ width: isLaptop ? width : '100%' }}
       transition={transition}
     >
-      <div className="hidden absolute w-24 h-full -translate-x-full bg-gradient-to-l from-white laptop:block" />
+      <div className="hidden absolute w-24  -translate-x-full bg-gradient-to-l from-white laptop:block" />
       <AutocompleteBasic
         initialQuery={initialQuery}
         searchClient={searchClient}

@@ -12,6 +12,7 @@ import { Tablet, Laptop } from '@/lib/media'
 import { Button } from '@ui/button/button'
 import { IconLabel } from '@ui/icon-label/icon-label'
 import { Link } from '@ui/link/link'
+import { NavAutocomplete } from './nav-autocomplete'
 
 const Logo = dynamic<LogoProps>(() =>
   import(/* webpackChunkName: 'common' */ '@/components/logo/logo').then(
@@ -21,48 +22,17 @@ const Logo = dynamic<LogoProps>(() =>
 
 export const NavTop = memo(function NavTop() {
   return (
-    <div className="flex flex-col px-4 py-2 border-b border-neutral-light laptop:mx-20 laptop:px-0 laptop:pt-8 laptop:pb-0 laptop:mb-5">
-      <div className="flex justify-between w-full gap-3 laptop:mb-8">
-        <div className="flex items-center">
-          <Logo />
+    <div className="flex flex-col px-4 border-b border-neutral-light laptop:mx-10 laptop:px-0 laptop:pt-4 laptop:pb-0 laptop:mb-6">
+      <div className="flex justify-between w-full gap-3 laptop:mb-4">
+        <div className="flex items-center" style={{cursor:'pointer'}}>
+          <img src="/logo.png" width={50} alt="Logo" /> <span className='mx-2' style={{fontFamily:'impact', fontSize:25}}>Tauri 3D</span>
         </div>
 
-        <div className="flex gap-48">
-          <div className="hidden items-center gap-8 laptop:flex">
-            <Link
-              href="/support"
-              title="Support"
-              className="can-hover:transition-colors can-hover:hover:text-neutral-dark"
-              onClick={(e) => e.preventDefault()}
-            >
-              <IconLabel
-                icon={HeadsetMicIcon}
-                label="Support"
-                labelPosition="right"
-                classNameLabel="label-regular"
-              />
-            </Link>
-            <Link
-              href="/store-locator"
-              title="Find a store"
-              className="can-hover:transition-colors can-hover:hover:text-neutral-dark"
-              onClick={(e) => e.preventDefault()}
-            >
-              <IconLabel
-                icon={PinDropIcon}
-                label="Find a store"
-                labelPosition="right"
-                classNameLabel="label-regular"
-              />
-            </Link>
-          </div>
+        <div className="flex gap-20">
+          <div className="flex items-center gap-2 laptop:gap-3">
 
-          <div className="flex items-center gap-6 laptop:gap-3">
-            <Tablet>
-              <Button title="Stores">
-                <IconLabel icon={PinDropIcon} label="Stores" />
-              </Button>
-            </Tablet>
+            <NavAutocomplete/>
+
             <Laptop>
               <Button title="Favorites">
                 <IconLabel icon={FavoriteIcon} />
@@ -86,6 +56,7 @@ export const NavTop = memo(function NavTop() {
                 <IconLabel icon={ShoppingBagIcon} />
               </Laptop>
             </Button>
+            
           </div>
         </div>
       </div>

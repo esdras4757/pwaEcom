@@ -103,7 +103,7 @@ const setUserToken: SetUserToken = (generatedUserToken, setToken) => {
 }
 
 const autocomplete = {
-  placeholders: ['products', 'articles', 'faq'],
+  placeholders: ['productos', 'articulos', 'faq'],
   debouncing: 800, // in ms
   detachedMediaQuery: '(max-width: 1439px)',
 }

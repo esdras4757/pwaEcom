@@ -4,12 +4,7 @@ import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Script from 'next/script'
 import { useMemo } from 'react'
-
-/// #if DEV
-// eslint-disable-next-line import/order
 import { Dev } from '@dev/dev'
-/// #endif
-
 import { Banner } from '@/components/banner/banner'
 import type { FooterProps } from '@/components/footer/footer'
 import type { HeaderProps } from '@/components/header/header'
@@ -42,7 +37,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <AppLayout>
       <Head>
-        <title>Spencer and Williams</title>
+        <title>Tauri3D</title>
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"
@@ -68,9 +63,9 @@ export default function App({ Component, pageProps, router }: AppProps) {
         </>
       )}
 
-      <Banner size="xs-large" className="z-header" fullWidth={true}>
-        20% Off! Code: SPRING21 - Terms apply*
-      </Banner>
+      {/* <Banner size="xs-large" className="z-header" fullWidth={true}>
+        20% Off! Code: SPRING21 - Terms apply*c
+      </Banner> */}
       <Header />
 
       <AnimatePresence exitBeforeEnter={true} onExitComplete={scrollToTop}>
